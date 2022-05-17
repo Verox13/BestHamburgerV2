@@ -8,7 +8,7 @@ let validacoesCadastro = [
     check("nome").notEmpty().withMessage("Preencha o seu nome ").isLength({ min: 3 }).withMessage("O nome deve ter pelo menos 3 caracteres"),
     check('sobrenome').notEmpty().withMessage('Deve preencher o Sobrenome').isLength({ min: 3 }).withMessage('O sobrenome deve ter pelo menos 3 caracteres'),
     check("genero").notEmpty().withMessage("Preencha o gênero corretamente"),
-    check("data_nascimento").notEmpty().withMessage("Preencha a data de nascimento corretamente"),
+    check("data_de_nascimento").notEmpty().withMessage("Preencha a data de nascimento corretamente"),
     check("cpf").notEmpty().withMessage("Preencha o CPF corretamente").isLength({ min: 11, max: 11 }).withMessage("Preencha o CPF corretamente"),
     check("celular").notEmpty().withMessage("Preencha o celular corretamente").isLength({ min: 11, max: 11 }).withMessage("Preencha o celular corretamente"),
     check("email").custom(async emailBody => {

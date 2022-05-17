@@ -36,10 +36,10 @@
                         </div>
                         <div class="campo">
                             <label for="dataNascimento">Data de nascimento:</label>
-                            <input type="text" name="data_nascimento" id="dataNascimento" value="<%= locals.old && old.data_nascimento %>">
+                            <input type="text" name="data_de_nascimento" id="dataNascimento" value="<%= locals.old && old.data_de_nascimento %>">
                             <% if(locals.errors && errors.data_nascimento) { %>
                                 <span class="span-form">
-                                        <%= errors.data_nascimento.msg %>
+                                        <%= errors.data_de_nascimento.msg %>
                                     </span>
                                 <% } %>
                         </div>
