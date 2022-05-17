@@ -12,26 +12,25 @@ const principalController = {
         req.session.destroy();
         res.render("login");
     },
-    postLogin: function(req, res) {
+    postLogin: async function(req, res) {
         const { email, senha } = req.body;
-        const usuarioLogado = usuarios.find(
-            (usuario) => usuario.email == email && usuario.senha == senha
-        );
-        if (usuarioLogado) {
+        const user = await Usuario.findOne({ where: { email: email } });
+        const checkPassword = await bcrypt.compare(senha, user.senha);
+        if (checkPassword && email == user.email) {
             req.session.user = {};
-            req.session.user.avatar = usuarioLogado.avatar;
-            req.session.user.nome = usuarioLogado.nome;
-            req.session.user.apelido = usuarioLogado.apelido;
-            req.session.user.cpf = usuarioLogado.cpf;
-            req.session.user.nascimento = usuarioLogado.nascimento;
-            req.session.user.telefone = usuarioLogado.telefone;
-            req.session.user.genero = usuarioLogado.genero;
-            req.session.user.cep = usuarioLogado.cep;
-            req.session.user.endereco = usuarioLogado.endereco;
-            req.session.user.numero = usuarioLogado.numero;
-            req.session.user.estado = usuarioLogado.estado;
-            req.session.user.cidade = usuarioLogado.cidade;
-            req.session.user.email = usuarioLogado.email;
+            req.session.user.avatar = user.avatar;
+            req.session.user.nome = user.nome;
+            req.session.user.sobrenome = user.sobrenome;
+            req.session.user.cpf = user.cpf;
+            req.session.user.data_de_nascimento = user.data_de_nascimento;
+            req.session.user.telefone = user.telefone;
+            req.session.user.genero = user.genero;
+            req.session.user.cep = user.cep;
+            req.session.user.endereco = user.endereco;
+            req.session.user.numero = user.numero;
+            req.session.user.estado = user.estado;
+            req.session.user.cidade = user.cidade;
+            req.session.user.email = user.email;
             res.redirect("/");
         } else {
             res.render("login");

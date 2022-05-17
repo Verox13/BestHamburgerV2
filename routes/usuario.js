@@ -6,7 +6,6 @@ var authenticator = require('../middlewares/authenticator')
 
 
 router.get("/perfil/editar", authenticator, usuarioController.telaEditarPerfil);
-router.put("/perfil/editar", authenticator, usuarioController.editarPerfil); //uploadAvatar
 router.get("/pagamento", authenticator, usuarioController.pagamento);
 router.get("/carrinho", authenticator, usuarioController.carrinho);
 router.get("/comprar", usuarioController.comprar);

@@ -16,21 +16,20 @@
                     <input type="text" id='nome' name='nome' value="<%= sessao.user.nome %>">
                 </div>
                 <div class='campo'>
-                    <label for="complemento">Apelido:</label>
-                    <input type="text" id='apelido' name='apelido' value="<%= sessao.user.apelido %>">
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" id='sobrenome' name='sobrenome' value="<%= sessao.user.sobrenome %>">
                 </div>
                 <div class='campo'>
-                    <label for="cpf">CPF:</label>
-                    <input type="text" id='cpf' name='cpf' value="<%= sessao.user.cpf %>">
+                    <label for="cpf ">CPF:</label>
+                    <input type="text " id='cpf' name='cpf' value="<%=sessao.user.cpf %>">
                 </div>
                 <div class='campo'>
-                    <label for="nascimento">Data de nascimento:</label>
-                    <input type="date" id='nascimento' name='nascimento' value="<%= sessao.user.nascimento %>">
+                    <label for="data_de_nascimento">Data de nascimento:</label>
+                    <input type="text" id='data_de_nascimento' name='data_de_nascimento' value="<%= sessao.user.data_de_nascimento %>">
                 </div>
                 <div class='campo'>
                     <label for="telefone">Telefone:</label>
-                    <input type="tel" id='telefone' maxlength='11' name='telefone'
-                        placeholder="DDD + Número sem traços ou espaços" value="<%= sessao.user.telefone %>">
+                    <input type="tel" id='telefone' maxlength='11' name='telefone' placeholder="DDD + Número sem traços ou espaços" value="<%= sessao.user.telefone %>">
                 </div>
                 <div class='campo'>
                     <label for="genero">Genêro:</label>
@@ -66,8 +65,7 @@
                 </div>
                 <div class='campo'>
                     <label for="confirmarsenha">Digite novamente a sua senha:</label>
-                    <input type="password" id='confirmarsenha' name='confirmarsenha' placeholder="Pelo menos 6 dígitos"
-                        required>
+                    <input type="password" id='confirmarsenha' name='confirmarsenha' placeholder="Pelo menos 6 dígitos" required>
                 </div>
                 <div class='novidades'>
                     <p>Deseja receber promoções e novidades regularmente?</p>
