@@ -1,63 +1,39 @@
-const config = require("../database/config");
-const { Sequelize, DataTypes } = require("sequelize");
-const sequelize = new Sequelize(config);
+const Produto = (sequelize, DataTypes) => {
+    const produto = sequelize.define(
+        'Produto', {
+            nome: {
+                type: DataTypes.STRING,
+                allownull: false
+            },
+            preco: {
+                type: DataTypes.DECIMAL,
+                allownull: false
+            },
+            descricao: {
+                type: DataTypes.STRING,
+                allownull: false
+            },
 
-module.exports = (sequelize, DataTypes) => {
-	const Produto = sequelize.define(
-		"Produto",
-		{
-			id_produto: {
-				type: DataTypes.INTEGER,
-				primaryKey: true,
-				autoIncrement: true,
-			},
+            img: {
+                type: DataTypes.STRING,
+                allownull: false
+            },
 
-			compra_venda: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-			novo_usado: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-			titulo: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-			cor: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-			tamanho: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-			genero: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-			preco_min: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-			preco_max: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-			descricao: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
+            tipo: {
+                type: DataTypes.STRING,
+                allownull: false
+            },
 
-			foto_produto: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-		},
-		{
-			tableName: "produto",
-			timestamps: false,
-		}
-	);
-   return Produto
-};
+        }, {
+            tableName: "produto",
+            timestamps: false
+        }
+    )
+    Produto.associate = (models => {
+        Produto.belongsToMany(models.Pedido, { as: "pedido", through: "pedido_produto", foreignKey: 'produto_id', otherKey: "pedido_id", timestamps: false })
+    })
+
+    return produto
+}
+
+module.exports = Produto
