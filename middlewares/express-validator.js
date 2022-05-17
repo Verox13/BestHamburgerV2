@@ -28,7 +28,7 @@ let validacoesCadastro = [
         }
     }),
     check("senha").isLength({ min: 6, max: 10 }).withMessage("A senha deve ter entre 6 e 10 caracteres"),
-    check("confirmarsenha").isLength({ min: 6, max: 10 }).withMessage("A senha deve ter entre 6 e 10 caracteres").custom((confirmarsenha, { req }) => {
+    check("confirmarsenha").isLength({ min: 6, max: 10 }).withMessage(" ").custom((confirmarsenha, { req }) => {
         const senha = req.body.senha;
         if (senha !== confirmarsenha) {
             throw new Error("As senhas não coincidem");
