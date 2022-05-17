@@ -1,52 +1,42 @@
+const Endereco = (sequelize, DataTypes) => {
+    const endereco = sequelize.define(
+        'Endereco', {
+            local: {
+                type: DataTypes.STRING,
+                allownull: false,
+            },
+            bairro: {
+                type: DataTypes.STRING,
+                allownull: false,
+            },
+            numero: {
+                type: DataTypes.STRING,
+                allownull: false,
+            },
+            rua: {
+                type: DataTypes.STRING,
+                allownull: false,
+            },
+            referencia: DataTypes.STRING,
 
-const config = require("../database/config");
-const { Sequelize, DataTypes } = require("sequelize");
-const sequelize = new Sequelize(config);
+            cep: {
+                type: DataTypes.STRING,
+                allownull: false,
+            },
+
+            usuario_id: {
+                type: DataTypes.INTEGER
 
 
-module.exports = (sequelize, DataTypes) => {
-	const Endereco = sequelize.define(
-		"Endereco",
-		{
-			id_endereco: {
-				type: DataTypes.INTEGER,
-				primaryKey: true,
-				autoIncrement: false,
-			},
+            }
+        }, {
+            tableName: "endereco",
+            timestamps: false
+        })
+    Endereco.associate = (models => {
+        Endereco.belongsTo(models.Usuario, { as: "endereco_usuario", foreignKey: 'usuario_id' })
+    })
+    return endereco
+}
 
-			cep: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-			rua: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-			numero: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-			bairro: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-			complemento: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-			cidade: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-			estado: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-		},
-		{
-			tableName: "endereco",
-			timestamps: false,
-		}
-	);
-    return Endereco
-};
+module.exports = Endereco

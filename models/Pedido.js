@@ -1,48 +1,41 @@
-const config = require("../database/config");
-const { Sequelize, DataTypes } = require("sequelize");
-const sequelize = new Sequelize(config);
+const Pedido = (sequelize, DataTypes) => {
+    const pedido = sequelize.define(
+        'Pedido', {
+            status: {
+                type: DataTypes.STRING,
+                allownull: false,
+            },
+            preco_total: {
+                type: DataTypes.STRING,
+                allownull: false,
+            },
+            data: {
+                type: DataTypes.DATE,
+                allowNull: false,
+            },
+            frete: {
+                type: DataTypes.DECIMAL,
+                allownull: false,
+            },
+            cartao_credito: DataTypes.STRING,
+            pix: DataTypes.STRING,
+            dinheiro: DataTypes.STRING,
+            usuario_id: {
+                type: DataTypes.INTEGER
+            },
 
-module.exports = (sequelize, DataTypes) => {
-    const Pedido = sequelize.define(
-			"Pedido",
-			{
-				id_pedido: {
-					type: DataTypes.INTEGER,
-					autoIncrement: true,
-					primaryKey: true,
-				},
-				frete: {
-					type: DataTypes.STRING,
-					allowNull: false,
-				},
-				status: {
-					type: DataTypes.STRING,
-					allowNull: false,
-				},
-				parcelamneto: {
-					type: DataTypes.STRING,
-					allowNull: false,
-				},
-				valor_parcelado: {
-					type: DataTypes.STRING,
-					allowNull: false,
-				},
-				valor_total: {
-					type: DataTypes.STRING,
-					allowNull: false,
-				},
-				forma_pagamento: {
-					type: DataTypes.STRING,
-					allowNull: false,
-				},
-			},
-			{
-				tableName: "pedido",
-				timestamps: false,
-			}
-		);
-    Pedido.associate = function (models) {
-          // associations can be defined here
-      };
-    return Pedido;
-  };
+        }, {
+            tableName: "pedido",
+            timestamps: false
+        }
+    )
+    Pedido.associate = (models => {
+        Pedido.belongsToMany(models.Produto, { as: "produto", through: "produto_pedido", foreignKey: 'pedido_id', otherKey: "produto_id", timestamps: false })
+
+        Pedido.belongsTo(models.Usuario, { as: "pedido_usuario", foreignKey: 'usuario_id' })
+    })
+
+    return pedido
+}
+
+module.exports = Pedido
