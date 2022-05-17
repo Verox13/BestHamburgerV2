@@ -860,7 +860,7 @@ main.home .categorias .imagenscategorias .imagem4 {
 }
 
 main.home .categorias .imagenscategorias .imagem5 {
-    background-image: url("../images/home-images/");
+    background-image: url("../images/home-images/burguer-11.jpg");
     grid-row: 4/6;
     background-size: cover;
     background-repeat: no-repeat;
@@ -917,7 +917,7 @@ main.home .produtosrecentes .imagensprodutos {
 
 main.home .produtosrecentes .imagensprodutos .imgrecente1 {
     background-color: white;
-    background-image: url("../images/home-images/jpg");
+    /* background-image: url("../images/home-images/burguer-10.jpg"); */
     background-size: 100%;
     background-repeat: no-repeat;
     display: flex;

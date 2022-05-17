@@ -1,0 +1,60 @@
+<%- include('./partials/header') %>
+    <main>
+        <div class='carrinho'>
+            <div class="card">
+                <h2>Carrinho</h2>
+                <div class='produto'>
+                    <p>Produto</p>
+                </div>
+                <div class='quantidade'>
+                    <p>Quantidade</p>
+                </div>
+                <div class='preco'>
+                    <p>Preço</p>
+                </div>
+                <div class='divisoria'></div>
+                <div class='fotoproduto'>
+                    <img src="/images/carrinho/burguer-5.jpg" alt="produto">
+                </div>
+                <div class="card-info-produto">
+                    <h3>Combo xx</h3>
+                    <p>Vendida por: <br> Sherlock Holmes </p>
+                </div>
+                <div class="card-info-preco">
+                    <img class="icon-min" src="/images/carrinho/menos.svg">
+                    <span>1</span>
+                    <img class="icon-max" src="/images/carrinho/Mais.svg">
+                </div>
+                <div class='precoproduto'>
+                    <span>R$28,99</span>
+                </div>
+                <div class="card-calc-frente">
+                    <h3>Calculando o frente</h3>
+                    <input type="text" placeholder="Digite seu cep">
+                    <button>Calcular</button>
+                </div>
+            </div>
+            <div class="card-pagamento">
+                <h3>Resumo</h3>
+                <div class='divcarrinho'></div>
+                <div class="card-info-1">
+                    <p>1 produto(s)</p>
+                    <p>R$ 28,99</p>
+                </div>
+                <div class="card-info-2">
+                    <p>Frete</p>
+                    <p>R$ 5,00</p>
+                </div>
+                <div class='divfrete'></div>
+                <div class="row"></div>
+                <div class="card-total">
+                    <span>Total</span>
+                    <p>R$ 28,99</p>
+                </div>
+                <div class='divtotal'></div>
+                <a href="/usuario/pagamento" style='text-decoration: none;'><button class="card-btn">Confimar</button></a>
+            </div>
+        </div>
+    </main>
+
+    <%- include('./partials/footer') %>
