@@ -236,6 +236,11 @@ main .cadusuario .login a {
     margin: 3rem 0 1rem 0;
 }
 
+main .span-form {
+    color: red;
+    font-size: 1.4rem;
+}
+
 
 /* PÁGINA DO CARRINHO */
 
