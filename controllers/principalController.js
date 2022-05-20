@@ -1,12 +1,14 @@
 const { validationResult } = require("express-validator");
-const { Sequelize, Usuario } = require("../models");
+const { Sequelize, Usuario, Produto } = require("../models");
 const bcrypt = require("bcryptjs");
 const Op = Sequelize.Op;
 
 
 const principalController = {
-    index: function(req, res) {
-        res.render("home");
+    index: async function(req, res) {
+        let produtos = await Produto.findAll({ where: { tipo: 'Acompanhamento' } })
+
+        res.render("home", { produtos });
     },
     getLogin: function(req, res) {
         req.session.destroy();
