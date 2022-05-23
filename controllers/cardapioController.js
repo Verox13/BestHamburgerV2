@@ -23,6 +23,12 @@ const cardapioController = {
         res.render("home-sobremesa", { produtos });
     },
 
+    homeBebidas: async function(req, res) {
+        let produtos = await Produto.findAll({ where: { tipo: "bebida" } })
+
+        res.render("home-bebidas", { produtos });
+    },
+
 
 
 }

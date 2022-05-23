@@ -8,6 +8,7 @@ router.get("/", principalController.index);
 router.get("/home-hamburgeres", cardapioController.homeHamburgeres);
 router.get("/home-burgerveg", cardapioController.homeBurgerVeg);
 router.get("/home-sobremesa", cardapioController.homeSobremesa);
+router.get("/home-bebidas", cardapioController.homeBebidas);
 router.get("/login", principalController.getLogin);
 router.post("/login", principalController.postLogin);
 router.get("/cadastrar", principalController.telaCadastro);
