@@ -5,11 +5,14 @@ var principalController = require("../controllers/principalController.js");
 var validator = require("../middlewares/express-validator");
 
 router.get("/", principalController.index);
+/*ROTAS CARDAPIO*/
 router.get("/home-hamburgeres", cardapioController.homeHamburgeres);
 router.get("/home-burgerveg", cardapioController.homeBurgerVeg);
 router.get("/home-sobremesa", cardapioController.homeSobremesa);
 router.get("/home-bebidas", cardapioController.homeBebidas);
 router.get("/home-acompanhamentos", cardapioController.homeAcompanhamentos);
+router.get("/home-cachorroquente", cardapioController.homeCachorroQuente);
+
 router.get("/login", principalController.getLogin);
 router.post("/login", principalController.postLogin);
 router.get("/cadastrar", principalController.telaCadastro);

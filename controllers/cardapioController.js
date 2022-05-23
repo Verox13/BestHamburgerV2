@@ -35,6 +35,12 @@ const cardapioController = {
         res.render("home-acompanhamentos", { produtos });
     },
 
+    homeCachorroQuente: async function(req, res) {
+        let produtos = await Produto.findAll({ where: { tipo: "cachorro quente" } })
+
+        res.render("home-cachorroquente", { produtos });
+    },
+
 
 
 }
