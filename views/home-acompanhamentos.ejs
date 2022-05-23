@@ -1,0 +1,67 @@
+<%- include('./partials/header') %>
+
+    <main class='home'>
+        <section class='carroselprincipal'>
+            <div class='fotos'>
+                <img src="/images/home-images/carrosel_01.jpeg" alt="">
+                <img src="/images/home-images/carrosel_02.jpeg" alt="">
+                <img src="/images/home-images/carrosel_03.jpeg" alt="">
+                <img src="/images/home-images/carrosel_04.jpeg" alt="">
+                <img src="/images/home-images/carrosel_01.jpeg" alt="">
+            </div>
+        </section>
+        <div class='categorias'>
+            <div class=divisaocat></div>
+            <h1>Cardapios</h1>
+            <div class=divisaocat></div>
+            <div class='imagenscategorias'>
+
+                <a id='Hamburgeres' class='imagem1' href="/">
+                    <p>Hamburgeres</p>
+                </a>
+                <a id='Hamburgeres' class='imagem2' href="/">
+                    <p>Hamburgeres Vegetarianos</p>
+                </a>
+                <a class='imagem3' href="#">
+                    <p>Cachorro Quente</p>
+                </a>
+                <a class='imagem4' href="#">
+                    <p>Combos</p>
+                </a>
+                <a class='imagem5' href="#">
+                    <p>Acompanhamentos</p>
+                </a>
+                <a class='imagem6' href="#">
+                    <p>Bebidas</p>
+                </a>
+                <a class='imagem7' href="#">
+                    <p>Sobremesas </p>
+                </a>
+            </div>
+        </div>
+        <div class='produtosrecentes'>
+            <div class=divisaoprodrec></div>
+            <h1>
+                Acompanhamentos
+            </h1>
+            <div class=divisaoprodrec></div>
+            <div class='imagensprodutos'>
+                <%for(listaprodutos of produtos){%>
+                    <div class='imgrecente1'>
+                        <img src="<%=listaprodutos.img%>" width='100%' height='100%'>
+                        <div class='subtituloimg'>
+                            <p>
+                                <%=listaprodutos.nome%>
+                            </p>
+                            <p>Preço: R$
+                                <%=listaprodutos.preco%>
+                            </p>
+                        </div>
+                    </div>
+                    <%}%>
+
+            </div>
+        </div>
+    </main>
+
+    <%- include('./partials/footer') %>

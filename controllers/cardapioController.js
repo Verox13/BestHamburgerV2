@@ -29,6 +29,12 @@ const cardapioController = {
         res.render("home-bebidas", { produtos });
     },
 
+    homeAcompanhamentos: async function(req, res) {
+        let produtos = await Produto.findAll({ where: { tipo: "acompanhamento" } })
+
+        res.render("home-acompanhamentos", { produtos });
+    },
+
 
 
 }
