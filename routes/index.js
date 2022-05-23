@@ -6,6 +6,7 @@ var validator = require("../middlewares/express-validator");
 
 router.get("/", principalController.index);
 router.get("/home-hamburgeres", cardapioController.homeHamburgeres);
+router.get("/home-burgerveg", cardapioController.homeBurgerVeg);
 router.get("/login", principalController.getLogin);
 router.post("/login", principalController.postLogin);
 router.get("/cadastrar", principalController.telaCadastro);

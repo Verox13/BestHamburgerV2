@@ -11,6 +11,12 @@ const cardapioController = {
         res.render("home-hamburgeres", { produtos });
     },
 
+    homeBurgerVeg: async function(req, res) {
+        let produtos = await Produto.findAll({ where: { tipo: "hamburger vegetariano" } })
+
+        res.render("home-burgerveg", { produtos });
+    },
+
 
 }
 
