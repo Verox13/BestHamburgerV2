@@ -17,6 +17,13 @@ const cardapioController = {
         res.render("home-burgerveg", { produtos });
     },
 
+    homeSobremesa: async function(req, res) {
+        let produtos = await Produto.findAll({ where: { tipo: "sobremesa" } })
+
+        res.render("home-sobremesa", { produtos });
+    },
+
+
 
 }
 
