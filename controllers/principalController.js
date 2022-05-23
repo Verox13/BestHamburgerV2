@@ -10,6 +10,8 @@ const principalController = {
 
         res.render("home", { produtos });
     },
+
+
     getLogin: function(req, res) {
         req.session.destroy();
         res.render("login");
