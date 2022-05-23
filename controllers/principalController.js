@@ -5,12 +5,9 @@ const Op = Sequelize.Op;
 
 
 const principalController = {
-    index: async function(req, res) {
-        let produtos = await Produto.findAll({ where: { tipo: 'Acompanhamento' } })
-
-        res.render("home", { produtos });
+    index: function(req, res) {
+        res.render("home");
     },
-
 
     getLogin: function(req, res) {
         req.session.destroy();
