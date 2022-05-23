@@ -12,6 +12,7 @@ router.get("/home-sobremesa", cardapioController.homeSobremesa);
 router.get("/home-bebidas", cardapioController.homeBebidas);
 router.get("/home-acompanhamentos", cardapioController.homeAcompanhamentos);
 router.get("/home-cachorroquente", cardapioController.homeCachorroQuente);
+router.get("/home-combos", cardapioController.homeCombos);
 
 router.get("/login", principalController.getLogin);
 router.post("/login", principalController.postLogin);

@@ -41,6 +41,13 @@ const cardapioController = {
         res.render("home-cachorroquente", { produtos });
     },
 
+    homeCombos: async function(req, res) {
+        let produtos = await Produto.findAll({ where: { tipo: "combos" } })
+
+        res.render("home-combos", { produtos });
+    },
+
+
 
 
 }
