@@ -349,6 +349,17 @@ main .carrinho .card-info-preco img {
     height: 25%;
 }
 
+main .carrinho .card-info-preco button {
+    border-radius: 01px;
+    background-color: #FDBB10;
+    border: #FDBB10 solid 1px;
+    color: black;
+    font-size: 10px;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+}
+
 main .carrinho .precoproduto {
     grid-row: 3/4;
     grid-column: 4/5;
@@ -1010,6 +1021,21 @@ main.home .produtosrecentes .imagensprodutos img {
 
 main.home .produtosrecentes .imagensprodutos .subtituloimg p {
     margin: 5px 0;
+}
+
+main .botao {
+    border-radius: 200px;
+    padding: 10px;
+    border: #FDBB10 1px solid;
+    background-color: #FDBB10;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+main .botao:hover {
+    background-color: black;
+    border: black 1px solid;
 }
 
 
