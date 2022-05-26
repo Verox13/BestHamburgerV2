@@ -18,6 +18,7 @@ const principalController = {
         const user = await Usuario.findOne({ where: { email: email } });
         const checkPassword = await bcrypt.compare(senha, user.senha);
         if (checkPassword && email == user.email) {
+            req.session.carrinho = []
             req.session.user = {};
             req.session.user.avatar = user.avatar;
             req.session.user.nome = user.nome;

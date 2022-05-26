@@ -14,6 +14,11 @@ router.get("/home-acompanhamentos", cardapioController.homeAcompanhamentos);
 router.get("/home-cachorroquente", cardapioController.homeCachorroQuente);
 router.get("/home-combos", cardapioController.homeCombos);
 
+router.post("/addproduto/:id", (req, res) => {
+    const idProduto = req.params.id
+    res.send(idProduto)
+})
+
 router.get("/login", principalController.getLogin);
 router.post("/login", principalController.postLogin);
 router.get("/cadastrar", principalController.telaCadastro);
