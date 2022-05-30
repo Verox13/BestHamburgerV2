@@ -1641,49 +1641,12 @@ main .pai-flexbox .wrapperboxbranco .containeresquerdo .formularioend .formulari
     margin: 10px;
 }
 
-main .pai-flexbox .wrapperboxbranco .containeresquerdo .formularioend .formulario-end .rua {
-    margin: 10px;
-}
-
-main .pai-flexbox .wrapperboxbranco .containeresquerdo .formularioend .formulario-end .numero {
-    margin: 10px;
-}
-
-main .pai-flexbox .wrapperboxbranco .containeresquerdo .formularioend .formulario-end .cep {
-    margin: 10px;
-}
-
-main .pai-flexbox .wrapperboxbranco .containeresquerdo .formularioend .formulario-end .bairro {
-    margin: 10px;
-}
-
-main .pai-flexbox .wrapperboxbranco .containeresquerdo .formularioend .formulario-end .estado {
-    margin: 10px;
-}
-
-main .pai-flexbox .wrapperboxbranco .containeresquerdo .formularioend .formulario-end .cidade {
-    margin: 10px;
-}
-
-main .pai-flexbox .wrapperboxbranco .containeresquerdo .formularioend .formulario-end .complemento {
-    margin: 10px;
+main .pai-flexbox .wrapperboxbranco .containeresquerdo .formularioend .formulario-end .end {
+    margin: 20px;
 }
 
 main .pai-flexbox .wrapperboxbranco .containeresquerdo .botaocontinuar {
     display: flex;
-    justify-content: center;
-}
-
-main .pai-flexbox .wrapperboxbranco .containeresquerdo .botaocontinuar .botao-continuar {
-    border: #FDBB10 solid 2px;
-    border-radius: 20px;
-    width: 200px;
-    height: auto;
-    background-color: #FDBB10;
-    text-align: center;
-    padding: 10px;
-    margin-left: 40px;
-    margin-top: 100px;
     justify-content: center;
 }
 
@@ -1692,6 +1655,17 @@ main .pai-flexbox .wrapperboxbranco .containeresquerdo .botaocontinuar .botao-co
     text-decoration: none;
     color: black;
     font-size: 15px;
+    border: #FDBB10 solid 2px;
+    border-radius: 20px;
+    width: 200px;
+    height: auto;
+    background-color: #FDBB10;
+    text-align: center;
+    padding: 10px;
+    margin: 100px;
+    justify-content: center;
+    cursor: pointer;
+    font-family: "Denk One", sans-serif;
 }
 
 

@@ -11,6 +11,7 @@ router.get("/carrinho", authenticator, usuarioController.carrinho);
 router.get("/comprar", usuarioController.comprar);
 router.get("/trocarsenha", authenticator, usuarioController.trocarSenha);
 router.get("/endereco", usuarioController.endereco);
+router.post("/endereco", usuarioController.CadastrarEndereco);
 router.get("/pedidos", usuarioController.pedidos);
 
 module.exports = router;
