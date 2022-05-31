@@ -15,6 +15,10 @@ const usuarioController = {
     carrinho: function(req, res) {
         res.render("carrinho");
     },
+    addProduto: (req,res) => {
+        const idProduto = req.params.id
+        res.send(idProduto)
+    },
     chat: function(req, res) {
         res.render("chat");
     },
