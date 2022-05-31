@@ -9,7 +9,7 @@ router.get("/perfil/editar", authenticator, usuarioController.telaEditarPerfil);
 router.get("/pagamento", authenticator, usuarioController.pagamento);
 router.get("/comprar", usuarioController.comprar);
 router.get("/trocarsenha", authenticator, usuarioController.trocarSenha);
-router.get("/endereco", authenticator,usuarioController.endereco);
+router.get("/endereco", authenticator, usuarioController.endereco);
 router.post("/endereco", usuarioController.CadastrarEndereco);
 router.get("/pedidos", usuarioController.pedidos);
 
