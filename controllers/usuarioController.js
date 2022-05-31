@@ -1,6 +1,7 @@
 const { Sequelize, Usuario, Endereco } = require("../models");
 
 
+
 const usuarioController = {
     cadastroProduto: function(req, res) {
         res.render("cadastro-produto");
@@ -29,15 +30,9 @@ const usuarioController = {
         res.render("endereco");
     },
 
-    CadastrarEndereco: async function(req, res) {
-        const errors = validationResult(req);
-        console.log(errors)
-        if (!errors.isEmpty()) {
-            res.render("endereco", {
-                errors: errors.mapped(),
-                old: req.body,
-            });
-        } else {
+    CadastrarEndereco: async function(req, res) {   
+            let user =req.session.user;
+            console.log(user.id);
             const { local, bairro, numero, rua, referencia, cep } = req.body;
             let enderecoCadastrado = await Endereco.create({
                 local: local,
@@ -46,10 +41,12 @@ const usuarioController = {
                 rua: rua,
                 referencia: referencia,
                 cep: cep,
+                usuario_id: user.id
+               
 
             });
             return res.render("pagamento");
-        }
+        
     },
 
     pedidos: function(req, res) {

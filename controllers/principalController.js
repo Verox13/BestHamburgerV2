@@ -1,5 +1,5 @@
 const { validationResult } = require("express-validator");
-const { Sequelize, Usuario, Produto } = require("../models");
+const { Sequelize, Usuario, Produto, Endereco } = require("../models");
 const bcrypt = require("bcryptjs");
 const Op = Sequelize.Op;
 
@@ -16,25 +16,28 @@ const principalController = {
     postLogin: async function(req, res) {
         const { email, senha } = req.body;
         const user = await Usuario.findOne({ where: { email: email } });
+        const endereco = await Endereco.findOne({ where: { usuario_id: user.id} })
         const checkPassword = await bcrypt.compare(senha, user.senha);
         if (checkPassword && email == user.email) {
-            req.session.carrinho = []
+            
             req.session.user = {};
-            req.session.user.avatar = user.avatar;
+            req.session.user.id= user.id;
             req.session.user.nome = user.nome;
             req.session.user.sobrenome = user.sobrenome;
             req.session.user.cpf = user.cpf;
-            req.session.user.data_de_nascimento = user.data_de_nascimento;
             req.session.user.telefone = user.telefone;
-            req.session.user.genero = user.genero;
-            req.session.user.cep = user.cep;
-            req.session.user.endereco = user.endereco;
-            req.session.user.numero = user.numero;
-            req.session.user.estado = user.estado;
-            req.session.user.cidade = user.cidade;
             req.session.user.email = user.email;
+            req.session.user.genero = user.genero;
+            req.session.user.data_de_nascimento = user.data_de_nascimento;
+            req.session.user.avatar = user.avatar;
+            req.session.user.local = endereco.local;
+            req.session.user.bairro = endereco.bairro;
+            req.session.user.numero = endereco.numero;            
+            req.session.user.referencia = endereco.referencia;            
+            req.session.user.cep = endereco.cep;
+            console.log(req.session.user)
             res.redirect("/");
-        } else {
+        } else {            
             res.render("login");
         }
     },
@@ -66,6 +69,7 @@ const principalController = {
             return res.render("login");
         }
     },
+    
     telaContato: function(req, res) {
         res.render("contato");
     },

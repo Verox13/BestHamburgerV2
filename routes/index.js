@@ -28,4 +28,5 @@ router.get("/recuperar", principalController.telaRecuperar);
 router.post("/recuperar", principalController.telaRecuperar);
 router.get("/logout", principalController.logout);
 
+
 module.exports = router;
