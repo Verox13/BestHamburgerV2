@@ -16,12 +16,12 @@ const principalController = {
     postLogin: async function(req, res) {
         const { email, senha } = req.body;
         const user = await Usuario.findOne({ where: { email: email } });
-        const endereco = await Endereco.findOne({ where: { usuario_id: user.id} })
+        const endereco = await Endereco.findOne({ where: { usuario_id: user.id } })
         const checkPassword = await bcrypt.compare(senha, user.senha);
         if (checkPassword && email == user.email) {
-            
+
             req.session.user = {};
-            req.session.user.id= user.id;
+            req.session.user.id = user.id;
             req.session.user.nome = user.nome;
             req.session.user.sobrenome = user.sobrenome;
             req.session.user.cpf = user.cpf;
@@ -30,14 +30,22 @@ const principalController = {
             req.session.user.genero = user.genero;
             req.session.user.data_de_nascimento = user.data_de_nascimento;
             req.session.user.avatar = user.avatar;
-            req.session.user.local = endereco.local;
-            req.session.user.bairro = endereco.bairro;
-            req.session.user.numero = endereco.numero;            
-            req.session.user.referencia = endereco.referencia;            
-            req.session.user.cep = endereco.cep;
+            if (endereco) {
+                req.session.user.local = endereco.local;
+                req.session.user.bairro = endereco.bairro;
+                req.session.user.numero = endereco.numero;
+                req.session.user.referencia = endereco.referencia;
+                req.session.user.cep = endereco.cep;
+            } else {
+                req.session.user.local = ''
+                req.session.user.bairro = ''
+                req.session.user.numero = ''
+                req.session.user.referencia = ''
+                req.session.user.cep = ''
+            }
             console.log(req.session.user)
             res.redirect("/");
-        } else {            
+        } else {
             res.render("login");
         }
     },
@@ -69,7 +77,7 @@ const principalController = {
             return res.render("login");
         }
     },
-    
+
     telaContato: function(req, res) {
         res.render("contato");
     },
