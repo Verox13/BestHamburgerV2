@@ -15,6 +15,6 @@ router.get("/pedidos", usuarioController.pedidos);
 
 //Rotas Carrinho
 
-router.get("/carrinho", usuarioController.carrinho);
+router.get("/addproduto/carrinho", usuarioController.carrinho);
 router.post("/addproduto/:id", usuarioController.addProduto);
 module.exports = router;

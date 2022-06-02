@@ -1,4 +1,4 @@
-const { Sequelize, Usuario, Endereco } = require("../models");
+const { Sequelize, Usuario, Endereco, Produto } = require("../models");
 
 
 
@@ -13,11 +13,17 @@ const usuarioController = {
         res.render("pagamento");
     },
     carrinho: function(req, res) {
-        res.render("carrinho");
+        const itens = req.session.carrinho
+        res.render("carrinho", { itens });
     },
-    addProduto: (req,res) => {
+    addProduto: async(req, res) => {
         const idProduto = req.params.id
-        res.send(idProduto)
+        const getCarrinho = await Produto.findByPk(idProduto)
+        let carrinho = req.session.carrinho
+        carrinho = [];
+        carrinho.push(getCarrinho)
+        console.log(carrinho)
+        res.redirect("carrinho")
     },
     chat: function(req, res) {
         res.render("chat");
@@ -34,23 +40,23 @@ const usuarioController = {
         res.render("endereco");
     },
 
-    CadastrarEndereco: async function(req, res) {   
-            let user =req.session.user;
-            console.log(user.id);
-            const { local, bairro, numero, rua, referencia, cep } = req.body;
-            let enderecoCadastrado = await Endereco.create({
-                local: local,
-                bairro: bairro,
-                numero: numero,
-                rua: rua,
-                referencia: referencia,
-                cep: cep,
-                usuario_id: user.id
-               
+    CadastrarEndereco: async function(req, res) {
+        let user = req.session.user;
+        console.log(user.id);
+        const { local, bairro, numero, rua, referencia, cep } = req.body;
+        let enderecoCadastrado = await Endereco.create({
+            local: local,
+            bairro: bairro,
+            numero: numero,
+            rua: rua,
+            referencia: referencia,
+            cep: cep,
+            usuario_id: user.id
 
-            });
-            return res.render("pagamento");
-        
+
+        });
+        return res.render("pagamento");
+
     },
 
     pedidos: function(req, res) {
