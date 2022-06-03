@@ -12,18 +12,36 @@ const usuarioController = {
     pagamento: function(req, res) {
         res.render("pagamento");
     },
-    carrinho: function(req, res) {
-        const itens = req.session.carrinho
-        res.render("carrinho", { itens });
-    },
     addProduto: async(req, res) => {
         const idProduto = req.params.id
         const getCarrinho = await Produto.findByPk(idProduto)
-        let carrinho = req.session.carrinho
-        carrinho = [];
-        carrinho.push(getCarrinho)
-        console.log(carrinho)
+        req.session.carrinho = []
+
+        if (getCarrinho) {
+            req.session.carrinho.id = getCarrinho.id;
+            req.session.carrinho.nome = getCarrinho.nome;
+            req.session.carrinho.preco = getCarrinho.preco;
+            req.session.carrinho.descricao = getCarrinho.descricao
+        } else {
+            req.session.carrinho.id = ""
+            req.session.carrinho.nome = ""
+            req.session.carrinho.preco = ""
+            req.session.carrinho.descricao = ""
+        }
+        // carrinho = [];
+        // carrinho.push(getCarrinho)
+        // if (carrinho) {
+        //     carrinho.push(getCarrinho)
+        // } else {
+        //     carrinho = [];
+        //     carrinho.push(getCarrinho)
+        // }
+        // console.log(req.session.carrinho)
         res.redirect("carrinho")
+    },
+    carrinho: function(req, res) {
+        console.log(req.session.user)
+        res.render("carrinho");
     },
     chat: function(req, res) {
         res.render("chat");
