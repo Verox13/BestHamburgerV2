@@ -1,6 +1,6 @@
 const config = {
     username: "root",
-    password: null,
+    password: "xnet@$0103",
     database: "besthamburger",
     host: "localhost",
     dialect: "mysql",

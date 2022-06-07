@@ -20,9 +20,9 @@
                     <img src="/images/carrinho/burguer-5.jpg" alt="produto">
                 </div>
                 <div class="card-info-produto">
-
+                    <%for (listaprodutos in carrinho)%><%{%>
                     <h3>
-                        <!-- <%=session.carrinho%> -->
+                        <%=carrinho.nome%>
                     </h3>
                     <p>Vendida por: <br> Sherlock Holmes </p>
                 </div>
@@ -34,7 +34,7 @@
                 <div class='precoproduto'>
                     <span>R$28,99</span>
                 </div>
-
+                <%}%>
                 <div class="card-calc-frente">
                     <h3>Calculando o frente</h3>
                     <input type="text" placeholder="Digite seu cep">
