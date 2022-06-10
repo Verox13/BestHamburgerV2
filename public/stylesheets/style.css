@@ -841,57 +841,61 @@ main.home .categorias .imagenscategorias {
 
 main.home .categorias .imagenscategorias a {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
     text-decoration: none;
     color: #FDBB10;
-    font-size: 2rem;
+    font-size: 3rem;
+}
+
+main.home .categorias .imagenscategorias a:hover {
+    color: red;
 }
 
 main.home .categorias .imagenscategorias .imagem1 {
-    background-image: url("../images/home-images/");
+    background-image: url("../images/home-images/burguer-4.jpg");
     grid-row: 1/6;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 main.home .categorias .imagenscategorias .imagem2 {
-    background-image: url("../images/home-images/");
+    background-image: url("../images/home-images/burgerveg-04.jpg");
     grid-row: 1/4;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 main.home .categorias .imagenscategorias .imagem3 {
-    background-image: url("../images/home-images/");
+    background-image: url("../images/home-images/cachorroquente-03.jpg");
     grid-row: 1/3;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 main.home .categorias .imagenscategorias .imagem4 {
-    background-image: url("../images/home-images/");
+    background-image: url("../images/home-images/comboburger-02.jpg");
     grid-row: 1/4;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 main.home .categorias .imagenscategorias .imagem5 {
-    background-image: url("../images/home-images/burguer-11.jpg");
+    background-image: url("../images/home-images/acompanhamento05.jpeg");
     grid-row: 4/6;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 main.home .categorias .imagenscategorias .imagem6 {
-    background-image: url("../images/home-images/");
+    background-image: url("../images/home-images/bebida04.jpg");
     grid-row: 3/6;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 main.home .categorias .imagenscategorias .imagem7 {
-    background-image: url("../images/home-images/");
+    background-image: url("../images/home-images/sobremesa-01.jpg");
     grid-row: 4/6;
     background-size: cover;
     background-repeat: no-repeat;
