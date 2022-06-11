@@ -14,16 +14,21 @@
                 <div class='preco'>
                     <p>Preço</p>
                 </div>
+                <%for (itens in carrinho)%><%{%>
+                    <%console.log(carrinho[itens].nome)%>
+                    <%}%>
+
+                <%for (itens in carrinho)%><%{%>
                 <div class='divisoria'></div>
 
                 <div class='fotoproduto'>
-                    <img src="/images/carrinho/burguer-5.jpg" alt="produto">
+                    <img src="<%=carrinho[itens].img%>" alt="produto">
                 </div>
                 <div class="card-info-produto">
-                    <%for (listaprodutos in carrinho)%><%{%>
                     <h3>
-                        <%=carrinho.nome%>
+                        <%=carrinho[itens].nome%>
                     </h3>
+                   
                     <p>Vendida por: <br> Sherlock Holmes </p>
                 </div>
                 <div class="card-info-preco">

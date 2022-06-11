@@ -1,3 +1,4 @@
+const { ARRAY } = require("sequelize");
 const { Sequelize, Usuario, Endereco, Produto } = require("../models");
 
 
@@ -15,18 +16,20 @@ const usuarioController = {
     addProduto: async (req, res) => {
         const idProduto = req.params.id
         const getCarrinho = await Produto.findByPk(idProduto)
+        let carrinho= req.session.carrinho      
 
-        carrinho = []
-        itens = carrinho.push(getCarrinho)
-        if (carrinho) {
+        if(carrinho){
+            carrinho.push(getCarrinho)
+        }else{
+            carrinho = req.session.carrinho = []
             carrinho.push(getCarrinho)
         }
+     
+        
+        // console.log(carrinho)
+        res.render("carrinho",{carrinho:carrinho})    
 
-
-
-        console.log(carrinho)
-
-        res.redirect("carrinho")
+      
     },
     carrinho: function (req, res) {
 
