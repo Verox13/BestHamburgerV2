@@ -14,37 +14,37 @@
                 <div class='preco'>
                     <p>Preço</p>
                 </div>
-                <%for (itens in carrinho)%><%{%>
-                    <%console.log(carrinho[itens].nome)%>
+
+                <%for (itens of carrinho){%>
+
+                    <div class='divisoria'></div>
+
+                    <div class='fotoproduto'>
+                        <img src="<%=itens.img%>" alt="produto">
+                    </div>
+                    <div class="card-info-produto">
+                        <h3>
+                            <%=itens.nome%>
+                        </h3>
+
+                        <p>
+                            <%=itens.descricao%>
+                        </p>
+                    </div>
+                    <div class="card-info-preco">
+                        <button>+</button>
+                        <span>1</span>
+                        <button>-</button>
+                    </div>
+                    <div class='precoproduto'>
+                        <span>  <%=itens.preco%></span>
+                    </div>
                     <%}%>
-
-                <%for (itens in carrinho)%><%{%>
-                <div class='divisoria'></div>
-
-                <div class='fotoproduto'>
-                    <img src="<%=carrinho[itens].img%>" alt="produto">
-                </div>
-                <div class="card-info-produto">
-                    <h3>
-                        <%=carrinho[itens].nome%>
-                    </h3>
-                   
-                    <p>Vendida por: <br> Sherlock Holmes </p>
-                </div>
-                <div class="card-info-preco">
-                    <button>+</button>
-                    <span>1</span>
-                    <button>-</button>
-                </div>
-                <div class='precoproduto'>
-                    <span>R$28,99</span>
-                </div>
-                <%}%>
-                <div class="card-calc-frente">
-                    <h3>Calculando o frente</h3>
-                    <input type="text" placeholder="Digite seu cep">
-                    <button>Calcular</button>
-                </div>
+                        <div class="card-calc-frente">
+                            <h3>Calculando o frente</h3>
+                            <input type="text" placeholder="Digite seu cep">
+                            <button>Calcular</button>
+                        </div>
             </div>
             <div class="card-pagamento">
                 <h3>Resumo</h3>

@@ -4,53 +4,55 @@ const { Sequelize, Usuario, Endereco, Produto } = require("../models");
 
 
 const usuarioController = {
-    cadastroProduto: function (req, res) {
+    cadastroProduto: function(req, res) {
         res.render("cadastro-produto");
     },
-    telaEditarPerfil: function (req, res) {
+    telaEditarPerfil: function(req, res) {
         res.render("perfil-editar");
     },
-    pagamento: function (req, res) {
+    pagamento: function(req, res) {
         res.render("pagamento");
     },
-    addProduto: async (req, res) => {
+    addProduto: async(req, res) => {
         const idProduto = req.params.id
         const getCarrinho = await Produto.findByPk(idProduto)
-        let carrinho= req.session.carrinho      
+        console.log(getCarrinho.toJSON())
+        let carrinho = req.session.carrinho
 
-        if(carrinho){
-            carrinho.push(getCarrinho)
-        }else{
+        if (carrinho && carrinho.length > 0) {
+            carrinho.push(getCarrinho.toJSON())
+        } else {
             carrinho = req.session.carrinho = []
-            carrinho.push(getCarrinho)
+            carrinho.push(getCarrinho.toJSON())
         }
-     
-        
-        // console.log(carrinho)
-        res.render("carrinho",{carrinho:carrinho})    
 
-      
+
+        console.log(carrinho)
+        res.render("carrinho", { carrinho: carrinho })
+            // res.send(carrinho)
+
+
     },
-    carrinho: function (req, res) {
+    carrinho: function(req, res) {
 
         res.render("carrinho");
     },
-    chat: function (req, res) {
+    chat: function(req, res) {
         res.render("chat");
     },
-    comprar: function (req, res) {
+    comprar: function(req, res) {
         res.render("comprar");
     },
 
-    trocarSenha: function (req, res) {
+    trocarSenha: function(req, res) {
         res.render("trocarsenha");
     },
 
-    endereco: function (req, res) {
+    endereco: function(req, res) {
         res.render("endereco");
     },
 
-    CadastrarEndereco: async function (req, res) {
+    CadastrarEndereco: async function(req, res) {
         let user = req.session.user;
         console.log(user.id);
         const { local, bairro, numero, rua, referencia, cep } = req.body;
@@ -69,7 +71,7 @@ const usuarioController = {
 
     },
 
-    pedidos: function (req, res) {
+    pedidos: function(req, res) {
         res.render("pedidos");
     },
 };
