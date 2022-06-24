@@ -1,6 +1,5 @@
-const { Sequelize, Usuario, Endereco } = require("../models");
-
-
+const { ARRAY } = require("sequelize");
+const { Sequelize, Usuario, Endereco, Produto } = require("../models");
 
 const usuarioController = {
     cadastroProduto: function(req, res) {
@@ -12,12 +11,22 @@ const usuarioController = {
     pagamento: function(req, res) {
         res.render("pagamento");
     },
+    addProduto: async(req, res) => {
+        const idProduto = req.params.id;
+        const getCarrinho = await Produto.findByPk(idProduto);
+        let carrinho = req.session.carrinho;
+
+        if (carrinho) {
+            carrinho.push(getCarrinho);
+        } else {
+            carrinho = req.session.carrinho = [];
+            carrinho.push(getCarrinho);
+        }
+        // console.log(carrinho)
+        res.render("carrinho", { carrinho: carrinho });
+    },
     carrinho: function(req, res) {
         res.render("carrinho");
-    },
-    addProduto: (req,res) => {
-        const idProduto = req.params.id
-        res.send(idProduto)
     },
     chat: function(req, res) {
         res.render("chat");
@@ -28,33 +37,6 @@ const usuarioController = {
 
     trocarSenha: function(req, res) {
         res.render("trocarsenha");
-    },
-
-    endereco: function(req, res) {
-        res.render("endereco");
-    },
-
-    CadastrarEndereco: async function(req, res) {   
-            let user =req.session.user;
-            console.log(user.id);
-            const { local, bairro, numero, rua, referencia, cep } = req.body;
-            let enderecoCadastrado = await Endereco.create({
-                local: local,
-                bairro: bairro,
-                numero: numero,
-                rua: rua,
-                referencia: referencia,
-                cep: cep,
-                usuario_id: user.id
-               
-
-            });
-            return res.render("pagamento");
-        
-    },
-
-    pedidos: function(req, res) {
-        res.render("pedidos");
     },
 };
 

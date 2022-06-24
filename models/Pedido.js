@@ -1,41 +1,44 @@
-const Pedido = (sequelize, DataTypes) => {
-    const pedido = sequelize.define(
-        'Pedido', {
-            status: {
+const Produto = (sequelize, DataTypes) => {
+    const produto = sequelize.define(
+        "Produto", {
+            nome: {
                 type: DataTypes.STRING,
                 allownull: false,
             },
-            preco_total: {
-                type: DataTypes.STRING,
-                allownull: false,
-            },
-            data: {
-                type: DataTypes.DATE,
-                allowNull: false,
-            },
-            frete: {
+            preco: {
                 type: DataTypes.DECIMAL,
                 allownull: false,
             },
-            cartao_credito: DataTypes.STRING,
-            pix: DataTypes.STRING,
-            dinheiro: DataTypes.STRING,
-            usuario_id: {
-                type: DataTypes.INTEGER
+            descricao: {
+                type: DataTypes.STRING,
+                allownull: false,
             },
 
+            img: {
+                type: DataTypes.STRING,
+                allownull: true,
+            },
+
+            tipo: {
+                type: DataTypes.STRING,
+                allownull: false,
+            },
         }, {
-            tableName: "pedido",
-            timestamps: false
+            tableName: "produto",
+            timestamps: false,
         }
-    )
-    Pedido.associate = (models => {
-        Pedido.belongsToMany(models.Produto, { as: "produto", through: "produto_pedido", foreignKey: 'pedido_id', otherKey: "produto_id", timestamps: false })
+    );
+    Produto.associate = (models) => {
+        Produto.belongsToMany(models.Pedido, {
+            as: "pedido",
+            through: "pedido_produto",
+            foreignKey: "produto_id",
+            otherKey: "pedido_id",
+            timestamps: false,
+        });
+    };
 
-        Pedido.belongsTo(models.Usuario, { as: "pedido_usuario", foreignKey: 'usuario_id' })
-    })
+    return produto;
+};
 
-    return pedido
-}
-
-module.exports = Pedido
+module.exports = Produto;
