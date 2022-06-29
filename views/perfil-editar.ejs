@@ -3,14 +3,6 @@
     <main class='edicao-principal'>
         <div class='edicao-perfil'>
             <form method="POST" action="/usuario/perfil/editar?_method=PUT" enctype="multipart/form-data">
-                <div class='upload'>
-                    <% if (sessao.user.avatar) { %>
-                        <img src="<%= sessao.user.avatar.substr(8,500) %>" alt="avatar profile">
-                        <% } else { %>
-                            <img src="/images/edicao-perfil/uploadperfil.png" alt="">
-                            <% } %>
-                                <input type='file' name='avatar' id='file' multiple>
-                </div>
                 <div class='campo'>
                     <label for="nome">Nome:</label>
                     <input type="text" id='nome' name='nome' value="<%= sessao.user.nome %>">
@@ -35,26 +27,7 @@
                     <label for="genero">Genêro:</label>
                     <input type="text" id='genero' name='genero' value="<%= sessao.user.genero %>">
                 </div>
-                <div class='campo'>
-                    <label for="cep">CEP:</label>
-                    <input type="number" id='cep' maxlength='11' name='cep' value="<%= sessao.user.cep %>">
-                </div>
-                <div class='campo'>
-                    <label for="endereco">Local:</label>
-                    <input type="text" id='endereco' name='endereco' value="<%= sessao.user.endereco %>">
-                </div>
-                <div class='campo'>
-                    <label for="cep">Número:</label>
-                    <input type="text" id='numero' name='numero' value="<%= sessao.user.numero %>">
-                </div>
-                <div class='campo'>
-                    <label for="estado">Rua:</label>
-                    <input type="text" id='estado' name='estado' value="<%= sessao.user.estado %>">
-                </div>
-                <div class='campo'>
-                    <label for="cidade">Bairro:</label>
-                    <input type="text" id='cidade' name='cidade' value="<%= sessao.user.cidade %>">
-                </div>
+
                 <div class='campo'>
                     <label for="senha">Alterar senha:</label>
                     <input type="password" id='senha' name='senha' placeholder="Pelo menos 6 dígitos" required>

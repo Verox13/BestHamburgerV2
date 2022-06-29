@@ -1,0 +1,37 @@
+<%- include('./partials/header') %>
+    <main>
+        <script>
+            function createElements() {
+                let array = JSON.parse(localStorage.getItem('listaProdutos'))
+                const arrayNovo = array.map((produto) => JSON.parse(produto))
+                const carrinho = document.querySelector('.carrinho')
+                arrayNovo.forEach((produto) => {
+                    console.log(produto)
+                    const externalHTML = `<div class="carrinho-test">
+                     
+        <p>${produto.nome}</p>
+        <img src=/${produto.img} width="60px">
+        <p>${produto.descricao}</p>
+        <div class="preco">
+                    <p>Preço</p>
+                    <p> R$${produto.preco},00</p>
+                </div>
+       
+        <div>`
+                    carrinho.innerHTML += externalHTML
+                })
+            }
+
+            window.onload = () => {
+                createElements()
+            }
+        </script>
+
+        <h2>Carrinho</h2>
+        <div class="carrinho">
+        </div>
+
+        </div>
+    </main>
+
+    <%- include('./partials/footer') %>
