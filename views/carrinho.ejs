@@ -7,9 +7,9 @@
                 const carrinho = document.querySelector('.carrinho')
                 arrayNovo.forEach((produto) => {
                     console.log(produto)
-                    const externalHTML = `<div class="carrinho-test">
+                    const externalHTML = `<div class="carrinho-test" >
                      
-        <p>${produto.nome}</p>
+        <p class =" nomeproduto">${produto.nome}</p>
         <img src=/${produto.img} width="60px">
         <p>${produto.descricao}</p>
         <div class="preco">
@@ -31,7 +31,13 @@
         <div class="carrinho">
         </div>
 
+        <div>
+            <h3>Total: xxxxx</h3>
+
+            <button type="submit"> Finalizar Compra</button>
         </div>
+
+
     </main>
 
     <%- include('./partials/footer') %>

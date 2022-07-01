@@ -244,11 +244,6 @@ main .span-form {
 
 /* PÁGINA DO CARRINHO */
 
-main {
-    display: flex;
-    justify-content: center;
-}
-
 main h2 {
     display: flex;
     justify-content: space-evenly;
@@ -256,6 +251,10 @@ main h2 {
     font-size: 2rem;
     color: black;
     margin: 5% 4%;
+}
+
+main .carrinho-test {
+    width: 300px;
 }
 
 main .carrinho .card {
