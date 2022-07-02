@@ -480,6 +480,36 @@ main .carrinho button.card-btn {
     border-radius: 50px;
 }
 
+main .flexcarrinho {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+main .flexcarrinho h3 {
+    font-size: 30px;
+    text-align: center;
+}
+
+main .flexcarrinho .linkcarrinho {
+    border: #FDBB10 solid 2px;
+    border-radius: 20px;
+    width: 200px;
+    height: auto;
+    background-color: #FDBB10;
+    text-align: center;
+    padding: 10px;
+    margin-left: 80px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+main .flexcarrinho .linkcarrinho .botaocarrinho {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
 
 /* ARRUMEI ALTURA PELO MEDIA QUERY */
 
@@ -1434,11 +1464,15 @@ main.contato .contato .contatowrapper .contatocontainer .linkchat {
     padding: 10px;
     margin-left: 80px;
     margin-top: 60px;
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
 }
 
 main.contato .contato .contatowrapper .contatocontainer .linkchat .botao {
     text-decoration: none;
     color: black;
+    font-size: 15px;
 }
 
 

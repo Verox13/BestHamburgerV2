@@ -2,15 +2,15 @@
 
     <main class="home">
         <script>
-            const produtosCarrinho = []
+            const produtosLocalStorage =
+                JSON.parse(localStorage.getItem('listaProdutos')) || []
+            const produtosCarrinho = [...produtosLocalStorage]
 
             function addItem(produto) {
-                try {
-                    let produtosArray = produto
-                    produtosCarrinho.push(produtosArray)
-                    localStorage.setItem('listaProdutos', JSON.stringify(produtosCarrinho))
-                    alert('Produto Adicionado ao carrinho')
-                } catch {}
+                let produtosArray = produto
+                produtosCarrinho.push(produtosArray)
+                localStorage.setItem('listaProdutos', JSON.stringify(produtosCarrinho))
+                alert('Produto Adicionado ao carrinho')
             }
         </script>
         <section class="carroselprincipal">

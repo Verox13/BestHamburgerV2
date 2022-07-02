@@ -2,7 +2,9 @@
 
     <main class="home">
         <script>
-            const produtosCarrinho = []
+            const produtosLocalStorage =
+                JSON.parse(localStorage.getItem('listaProdutos')) || []
+            const produtosCarrinho = [...produtosLocalStorage]
 
             function addItem(produto) {
                 let produtosArray = produto
